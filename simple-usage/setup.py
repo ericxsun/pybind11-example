@@ -85,7 +85,7 @@ class BuildExt(build_ext):
 SRC = 'src'
 
 r_cc = re.compile(r'\.(cpp|c|cc)$')
-src_files = [os.path.join(root, file) for root, _, files in os.walk(SRC) for file in files if files]
+src_files = [os.path.join(root, _file) for root, _, files in os.walk(SRC) for _file in files if files]
 src_files = map(str, src_files)
 src_cc = [x for x in src_files if r_cc.findall(x)]
 
