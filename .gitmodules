@@ -1,3 +1,9 @@
 [submodule "with-cmake/pybind11"]
 	path = with-cmake/pybind11
 	url = https://github.com/pybind/pybind11.git
+[submodule "with-cuda/cuBERT"]
+	path = with-cuda/cuBERT
+	url = https://github.com/zhihu/cuBERT.git
+[submodule "with-cuda/pybind11"]
+	path = with-cuda/pybind11
+	url = https://github.com/pybind/pybind11.git
