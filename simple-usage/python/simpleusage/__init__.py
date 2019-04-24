@@ -6,4 +6,5 @@
 # Author: qinluo <eric.x.sun@gmail.com>
 #
 
-from simpleusage_pybind import ComputeType, func
+from simpleusage_pybind import ComputeType
+from simpleusage_pybind import func

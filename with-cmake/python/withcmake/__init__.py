@@ -6,4 +6,5 @@
 # Author: qinluo <eric.x.sun@gmail.com>
 #
 
-from withcmake_pybind import ComputeType, func
+from withcmake_pybind import ComputeType
+from withcmake_pybind import func
