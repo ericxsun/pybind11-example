@@ -16,4 +16,4 @@ sed -i -e '/^set(mkl_SHARED_LIBRARIES ${mkl_SHARED_LIBRARIES} PARENT_SCOPE)$/d' 
 echo 'set(mkl_SHARED_LIBRARIES ${mkl_SHARED_LIBRARIES} PARENT_SCOPE)' >> cuBERT_CMAKE
 ```
 
-otherwise the build `so(dylib)` won't not copy to site-package
+otherwise the build `so(dylib)` won't be copied into site-package
