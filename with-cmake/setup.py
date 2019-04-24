@@ -37,10 +37,10 @@ class CMakeBuild(build_ext):
                 )
             )
 
-        if platform.system() == "Windows":
+        if platform.system() == 'Windows':
             cmake_version = LooseVersion(re.search(r'version\s*([\d.]+)', out.decode()).group(1))
             if cmake_version < '3.1.0':
-                raise RuntimeError("CMake >= 3.1.0 is required on Windows")
+                raise RuntimeError('CMake >= 3.1.0 is required on Windows')
 
         for ext in self.extensions:
             self.build_extension(ext)
@@ -53,7 +53,7 @@ class CMakeBuild(build_ext):
         cfg = 'Debug' if self.debug else 'Release'
         build_args = ['--config', cfg]
 
-        if platform.system() == "Windows":
+        if platform.system() == 'Windows':
             cmake_args += ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}'.format(cfg.upper(), ext_dir)]
             if sys.maxsize > 2**32:
                 cmake_args += ['-A', 'x64']
@@ -63,7 +63,7 @@ class CMakeBuild(build_ext):
             build_args += ['--', '-j2']
 
         env = os.environ.copy()
-        env['CXXFLAGS'] = '{} -DVERSION_INFO=\\"{}\\"'.format(env.get('CXXFLAGS', ''), self.distribution.get_version())
+        env['CXXFLAGS'] = '{} -DVERSION_INFO="{}"'.format(env.get('CXXFLAGS', ''), self.distribution.get_version())
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)

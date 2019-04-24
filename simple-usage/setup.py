@@ -46,7 +46,8 @@ class GetPybindInclude(object):  # pylint: disable=useless-object-inheritance, t
     """Helper class to determine the pybind11 include path
     The purpose of this class is to postpone importing pybind11
     until it is actually installed, so that the ``get_include()``
-    method can be invoked. """
+    method can be invoked.
+    """
 
     def __init__(self, user=False):
         self.user = user
@@ -75,7 +76,7 @@ class BuildExt(build_ext):
             if has_flag(self.compiler, '-fvisibility=hidden'):
                 opts.append('-fvisibility=hidden')
         elif compiler_type == 'msvc':
-            opts.append('/DVERSION_INFO=\\"%s\\"' % self.distribution.get_version())
+            opts.append('/DVERSION_INFO="%s"' % self.distribution.get_version())
         for ext in self.extensions:
             ext.extra_compile_args = opts
 
@@ -110,7 +111,7 @@ setuptools.setup(
     author_email='eric.x.sun@gmail.com',
     description='simple usage of pybind11',
     ext_modules=ext_modules,
-    install_requires=['pybind11>=2.2', "setuptools >= 0.7.0"],
+    install_requires=['pybind11>=2.2', 'setuptools >= 0.7.0'],
     cmdclass={'build_ext': BuildExt},
     packages=[str('simpleusage'), str('simpleusage.tests')],
     package_dir={str(''): str('python')},
